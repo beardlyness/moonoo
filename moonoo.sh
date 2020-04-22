@@ -100,7 +100,7 @@
                 moo_install_check
                 bash ./generate_config.sh
                 docker-compose pull
-                docker-compose up
+                docker-compose up -d
             ;;
           [nN]|[nN][oO])
               echo "You have said no? We cannot work without your permission!"
