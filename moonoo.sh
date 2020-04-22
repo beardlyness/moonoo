@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #===============================================================================================================================================
-# (C) Copyright 2019 MooNoo a project under the Crypto World Foundation (https://cryptoworld.is).
+# (C) Copyright 2020 MooNoo a project under the Crypto World Foundation (https://cryptoworld.is).
 #
 # Licensed under the GNU GENERAL PUBLIC LICENSE, Version 3.0 (the "License");
 # you may not use this file except in compliance with the License.
