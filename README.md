@@ -8,11 +8,11 @@
 
 # Usage	
 - Log into your server via ssh and download the raw moonoo.sh script and then execute it.<br>	
-- `wget https://moonoo.hacked.is/install.sh`<br>	
-- `bash install.sh`
+- `wget https://raw.githubusercontent.com/beardlyness/moonoo/master/moonoo.sh`<br>	
+- `bash moonoo.sh`
 
 # Notes
-If you have any questions feel free to email maintainer: `beard [AT] cryptoworld [DOT] is`
+If you have any questions feel free to email maintainer: `beard [AT] hacked [DOT] is`
 
 # mailcow: dockerized - 🐮 + 🐋 = 💕
 
