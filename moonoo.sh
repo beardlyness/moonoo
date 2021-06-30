@@ -19,8 +19,8 @@
 # description      :This script will make it super easy to setup mailcow, and have it be deployed in minutes.
 # author           :HACKED LLC.
 # contributors     :beard
-# date             :06-29-2021
-# version          :0.0.13 Alpha
+# date             :06-30-2021
+# version          :0.0.14 Alpha
 # os               :Debian/Ubuntu
 # usage            :bash moonoo.sh
 # notes            :If you have any problems feel free to email the maintainer: projects [AT] hacked [DOT] is
@@ -107,7 +107,7 @@
 
 
     # START
-      read -r -p "Do you want to setup Mailcow now? (Y/Yes | N/No) " REPLY
+      read -r -p """${cyan}""""${bold}""Do you want to setup Mailcow now? (Y/Yes | N/No) ""${reset}""" REPLY
         case "${REPLY,,}" in
           [yY]|[yY][eE][sS])
                 moo_install_setup
