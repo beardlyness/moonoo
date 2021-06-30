@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #===============================================================================================================================================
-# (C) Copyright 2020 MooNoo a project under the Crypto World Foundation (https://cryptoworld.is).
+# (C) Copyright 2021 MooNoo a project under Hacked LLC.)
 #
 # Licensed under the GNU GENERAL PUBLIC LICENSE, Version 3.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,15 +15,15 @@
 # limitations under the License.
 #
 #===============================================================================================================================================
-# title            :moonoo.sh
+# title            :MooNoo.sh
 # description      :This script will make it super easy to setup mailcow, and have it be deployed in minutes.
-# author           :The Crypto World Foundation.
+# author           :HACKED LLC.
 # contributors     :beard
-# date             :04-22-2020
-# version          :0.0.1 Alpha
+# date             :06-29-2021
+# version          :0.0.13 Alpha
 # os               :Debian/Ubuntu
 # usage            :bash moonoo.sh
-# notes            :If you have any problems feel free to email the maintainer: beard [AT] cryptoworld [DOT] is
+# notes            :If you have any problems feel free to email the maintainer: projects [AT] hacked [DOT] is
 #===============================================================================================================================================
 
 # Force check for root
@@ -32,20 +32,36 @@
      exit 1
   fi
 
-  # Project URL, Local Directory, Dockerized Directory Repo List Path for Mapping in script.
-    P_URL="https://github.com/mailcow/mailcow-dockerized"
-    P_LOCAL_DIR="/opt/"
-    P_DOCKERIZED_DIR="mailcow-dockerized"
+# Project URL, Local Directory, Dockerized Directory Repo List Path for Mapping in script.
+  P_URL="https://github.com/mailcow/mailcow-dockerized"
+  P_LOCAL_DIR="/opt/"
+  P_DOCKERIZED_DIR="mailcow-dockerized"
 
 
-# Setting up an update/upgrade global function
+# Color for tput
+  red=$(tput setaf 1)
+  green=$(tput setaf 2)
+  yellow=$(tput setaf 3)
+  blue=$(tput setaf 4)
+  magenta=$(tput setaf 5)
+  cyan=$(tput setaf 6)
+  white=$(tput setaf 7)
+
+#Functions for tput
+  reset=$(tput sgr0)
+  blink=$(tput blink)
+  bold=$(tput bold)
+  reverse=$(tput rev)
+  underline=$(tput smul)
+
+# Keeps the system updated
   function upkeep() {
-    echo "Performing upkeep.."
+    echo """${cyan}""""${bold}""Performing upkeep of system..""${reset}"""
       apt-get update -y
+      apt-get full-upgrade -y
       apt-get dist-upgrade -y
       apt-get clean -y
   }
-
 
  # Setting up helpers for moonoo to work in sections.
   function moo_install_setup() {
@@ -73,16 +89,16 @@
 
  # Checks for required pieces of software and installs those that are missing.
   tools=( git apt-utils lsb-release curl dialog socat dirmngr apt-transport-https ca-certificates )
-   grab_eware=""
-     for e in "${tools[@]}"; do
-       if command -v "$e" >/dev/null 2>&1; then
-         echo "Dependency $e is installed.."
-       else
-         echo "Dependency $e is not installed..?"
+    grab_eware=""
+      for e in "${tools[@]}"; do
+        if command -v "$e" > /dev/null 2>&1; then
+          echo """${green}""""${bold}""Dependency $e is installed..""${reset}"""
+        else
+          echo """${red}""""${bold}""Dependency $e is not installed..""${reset}"""
           upkeep
           grab_eware="$grab_eware $e"
-       fi
-     done
+        fi
+      done
     apt-get install $grab_eware
 
     # Grabbing info on active system
@@ -103,9 +119,9 @@
                 docker-compose up -d
             ;;
           [nN]|[nN][oO])
-              echo "You have said no? We cannot work without your permission!"
+              echo """${red}""""${bold}""You have said no? We cannot work without your permission!""${reset}"""
             ;;
           *)
-            echo "Invalid response. You okay?"
+            echo """${yellow}""""${bold}""Invalid response. You okay?""${reset}"""
             ;;
       esac
