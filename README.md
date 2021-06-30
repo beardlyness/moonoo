@@ -12,7 +12,7 @@
 - `bash moonoo.sh`
 
 # Notes
-If you have any questions feel free to email maintainer: `beard [AT] hacked [DOT] is`
+If you have any questions feel free to email maintainer: `projects [AT] hacked [DOT] is`
 
 # mailcow: dockerized - 🐮 + 🐋 = 💕
 
