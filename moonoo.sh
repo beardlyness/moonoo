@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #===============================================================================================================================================
-# (C) Copyright 2021 MooNoo a project under Hacked LLC.)
+# (C) Copyright 2023 MooNoo a project under Hacked LLC.)
 #
 # Licensed under the GNU GENERAL PUBLIC LICENSE, Version 3.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,8 +19,8 @@
 # description      :This script will make it super easy to setup mailcow, and have it be deployed in minutes.
 # author           :HACKED LLC.
 # contributors     :beard
-# date             :06-30-2021
-# version          :0.0.14 Alpha
+# date             :01-04-2023
+# version          :0.0.15 Alpha
 # os               :Debian/Ubuntu
 # usage            :bash moonoo.sh
 # notes            :If you have any problems feel free to email the maintainer: projects [AT] hacked [DOT] is
@@ -73,6 +73,7 @@
     curl -sSL https://get.docker.com/ | CHANNEL=stable sh
     systemctl enable docker.service
     systemctl start docker.service
+    apt install docker-compose-plugin -y
   }
 
   function moo_install_docker_compose() {
