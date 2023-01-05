@@ -1,5 +1,5 @@
 <h1 align="center">
-  <a href="https://github.com/beardlyness/moonoo"><img src="https://mailcow.email/img/cow_mailcow.svg" alt="Mailcow" width="200"></a>
+  <a href="https://github.com/beardlyness/moonoo"><img src="https://mailcow.email/images/cow_mailcow.svg" alt="Mailcow" width="200"></a>
  <br />
   MooNoo
 </h1>
