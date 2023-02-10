@@ -19,8 +19,8 @@
 # description      :This script will make it super easy to setup mailcow, and have it be deployed in minutes.
 # author           :HACKED LLC.
 # contributors     :beard
-# date             :01-04-2023
-# version          :0.0.15 Alpha
+# date             :02-09-2023
+# version          :0.0.16 Alpha
 # os               :Debian/Ubuntu
 # usage            :bash moonoo.sh
 # notes            :If you have any problems feel free to email the maintainer: projects [AT] hacked [DOT] is
@@ -65,7 +65,7 @@
 
  # Setting up helpers for moonoo to work in sections.
   function moo_install_setup() {
-    apt-get purge exim* postfix*
+    apt-get purge exim* postfix* docker* docker-compose*
     apt-get autoremove
   }
 
@@ -77,7 +77,7 @@
   }
 
   function moo_install_docker_compose() {
-    curl -L https://github.com/docker/compose/releases/download/$(curl -Ls https://www.servercow.de/docker-compose/latest.php)/docker-compose-$(uname -s)-$(uname -m) > /usr/local/bin/docker-compose
+    LATEST=$(curl -Ls -w %{url_effective} -o /dev/null https://github.com/docker/compose/releases/latest) && LATEST=${LATEST##*/} && curl -L https://github.com/docker/compose/releases/download/$LATEST/docker-compose-$(uname -s)-$(uname -m) > /usr/local/bin/docker-compose
     chmod +x /usr/local/bin/docker-compose
   }
 
